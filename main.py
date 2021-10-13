@@ -28,8 +28,12 @@ herd1.create_herd(dinosaur1)
 herd1.create_herd(dinosaur2)
 herd1.create_herd(dinosaur3)
 
+Robot.attack(fleet1.robots[2], dinosaur3)
+
+fleet1.robots(2).attack(dinosaur3)
 
 
+print((fleet1.robots[1].name), (fleet1.robots[0].name), (fleet1.robots[2].name))
 
 
 
