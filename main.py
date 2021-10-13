@@ -29,13 +29,10 @@ herd1.create_herd(dinosaur2)
 herd1.create_herd(dinosaur3)
 
 Robot.attack(robot1, dinosaur3)
-
-Robot.attack(fleet1.robots[2].weapon.attack_power, dinosaur3.health)
-
-
-print((fleet1.robots[1].name), (fleet1.robots[0].name), (fleet1.robots[2].name))
-
-
+Robot.attack(robot1, dinosaur3)
+Robot.attack(robot1, dinosaur3)
+Robot.attack(robot1, dinosaur3)
+Robot.attack(robot1, dinosaur3)
 
 
 
