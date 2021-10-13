@@ -1,6 +1,6 @@
-# class Herd:
-#     def __init__(self, dinosaurs):
-#         self.dinosaurs = []
+class Herd:
+    def __init__(self, dinosaurs):
+        self.dinosaurs = []
 
-#     def create_herd(self):
-#         pass
+    def create_herd(self):
+        pass
