@@ -34,6 +34,11 @@ Robot.attack(robot1, dinosaur3)
 Robot.attack(robot1, dinosaur3)
 Robot.attack(robot1, dinosaur3)
 
+Dinosaur.attack(dinosaur1, robot1)
+Dinosaur.attack(dinosaur1, robot1)
+Dinosaur.attack(dinosaur1,robot1)
+Dinosaur.attack(dinosaur1,robot1)
+Dinosaur.attack(dinosaur1,robot1)
 
 
 
