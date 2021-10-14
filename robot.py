@@ -12,7 +12,7 @@ class Robot:
         if dinosaur.health > 0:
             print(f'Dinosaur {dinosaur.name} now has a health of {dinosaur.health}')
         else: 
-            print(f'Dinosaur {dinosaur.name} has died')
+            print(f' Dinosaur {dinosaur.name} has died')
 
 
     

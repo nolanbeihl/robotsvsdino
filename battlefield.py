@@ -39,18 +39,23 @@ class Battlefield:
 
     def dino_turn(self):
         if self.fleet.robots[0].health > 0:
+    #use of this randomizer for the characters ends up using dead characters, will continue to work on
+            # robot = random.choice(self.fleet.robots)
+            # dinosaur = random.choice(self.herd.dinosaurs)
+            # Dinosaur.attack(dinosaur,robot)
             Dinosaur.attack(self.herd.dinosaurs[0], self.fleet.robots[0])
         else:
             return
 
     def robo_turn(self):
         if self.herd.dinosaurs[0].health > 0:
+            # robot = random.choice(self.fleet.robots)
+            # dinosaur = random.choice(self.herd.dinosaurs)
+            # Robot.attack(robot, dinosaur)
             Robot.attack(self.fleet.robots[0], self.herd.dinosaurs[0])
         else:
             return
         
-        # robot = Robot.attack(random.choice(self.herd.dinosaurs))
-
     def show_dino_opponent_options(self):
         print((self.herd.dinosaurs[0].name), (self.herd.dinosaurs[1].name), (self.herd.dinosaurs[2].name))
 
