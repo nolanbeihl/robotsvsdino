@@ -32,6 +32,8 @@ class Battlefield:
             Dinosaur.attack(self.herd.dinosaurs[1], self.fleet.robots[1])
         elif self.fleet.robots[2].health >0:
             Dinosaur.attack(self.herd.dinosaurs[2], self.fleet.robots[2])
+        else:
+            print('All of the robots have been defeated')
 
     def robo_turn(self):
         if self.herd.dinosaurs[0].health > 0:
