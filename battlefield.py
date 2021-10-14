@@ -17,10 +17,22 @@ class Battlefield:
         print('Welcome to todays match between Robots and Dinosaurs')
     
     def battle(self):
-       
         self.robo_turn()
         self.dino_turn()
-        
+        while self.herd.dinosaurs[2].health > 0 and self.fleet.robots[2].health >0:
+            self.robo_turn()
+            if self.fleet.robots[2].health > 0 and self.herd.dinosaurs[2].health >0:
+                self.dino_turn()
+            elif self.fleet.robots[2].health > 0:
+                self.battle()
+        else:
+            if self.herd.dinosaurs[2].health > 0:
+                self.display_winners('The Dinosaurs have won')
+                print('The battle is over')
+            elif self.fleet.robots[2].health > 0:
+                self.display_winners('The Robots have won')
+                print('The battle is over')
+
     #trying to make a random pick from the fleet and heard to attack
         # self.robo_turn(random.choice(self.fleet.robots).weapon.attack_power)
         # self.dino_turn(random.choice(self.herd.dinosaurs).attack_power)
@@ -33,7 +45,7 @@ class Battlefield:
         elif self.fleet.robots[2].health >0:
             Dinosaur.attack(self.herd.dinosaurs[2], self.fleet.robots[2])
         else:
-            print('All of the robots have been defeated')
+            return
 
     def robo_turn(self):
         if self.herd.dinosaurs[0].health > 0:
@@ -43,7 +55,7 @@ class Battlefield:
         elif self.herd.dinosaurs[2].health > 0:
             Robot.attack(self.fleet.robots[2], self.herd.dinosaurs[2])
         else:
-            print('All of the dinosaurs have been defeated')
+            return
         
         # robot = Robot.attack(random.choice(self.herd.dinosaurs))
 
@@ -53,6 +65,7 @@ class Battlefield:
     def show_robo_opponent_options(self):
         print((self.fleet.robots[0].name), (self.fleet.robots[1].name), (self.fleet.robots[2].name))
 
-    def display_winners(self):
-        pass
+    def display_winners(self,winner):
+        print(winner)
+
 
