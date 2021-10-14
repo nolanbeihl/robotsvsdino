@@ -3,6 +3,9 @@ from robot import Robot
 from dinosaur import Dinosaur
 from fleet import Fleet
 from herd import Herd
+from battlefield import Battlefield
+
+
 
 weapon1 = Weapon('sword', 10)
 weapon2 = Weapon('gun', 25)
@@ -19,6 +22,7 @@ dinosaur3 = Dinosaur('Tragdor', 150, 250)
 
 fleet1 = Fleet()
 herd1 = Herd()
+game = Battlefield(fleet1,herd1)
 
 fleet1.create_fleet(robot1)
 fleet1.create_fleet(robot2)
@@ -28,20 +32,10 @@ herd1.create_herd(dinosaur1)
 herd1.create_herd(dinosaur2)
 herd1.create_herd(dinosaur3)
 
-Robot.attack(robot1, dinosaur3)
-Robot.attack(robot1, dinosaur3)
-Robot.attack(robot1, dinosaur3)
-Robot.attack(robot1, dinosaur3)
-Robot.attack(robot1, dinosaur3)
-
-Dinosaur.attack(dinosaur1, robot1)
-Dinosaur.attack(dinosaur1, robot1)
-Dinosaur.attack(dinosaur1,robot1)
-Dinosaur.attack(dinosaur1,robot1)
-Dinosaur.attack(dinosaur1,robot1)
 
 
 
+print(game.display_welcome())
 
 
 
