@@ -1,3 +1,5 @@
+from fleet import Fleet
+
 class Dinosaur:
     def __init__(self, name, attack_power, health):
         self.name = name
@@ -9,5 +11,5 @@ class Dinosaur:
         if robot.health > 0:
             print(f'Robot {robot.name} now has a health value of {robot.health}')
         else:
-            print(f'Robot {robot.name} has passed away')
+            Fleet.robots.pop(robot)
 
