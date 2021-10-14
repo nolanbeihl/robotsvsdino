@@ -19,41 +19,33 @@ class Battlefield:
     def battle(self):
         self.robo_turn()
         self.dino_turn()
-        while self.herd.dinosaurs[2].health > 0 and self.fleet.robots[2].health >0:
+        while len(self.herd.dinosaurs)>0 and len(self.fleet.robots)>0:
             self.robo_turn()
-            if self.fleet.robots[2].health > 0 and self.herd.dinosaurs[2].health >0:
+            if self.herd.dinosaurs[0].health<=0:
+                self.herd.dinosaurs.pop(0)
+            elif self.fleet.robots[0] and self.herd.dinosaurs[0]:
                 self.dino_turn()
-            elif self.fleet.robots[2].health > 0:
-                self.battle()
+                if self.fleet.robots[0].health <= 0:
+                    self.fleet.robots.pop(0)
+            else:
+                 self.battle()
         else:
-            if self.herd.dinosaurs[2].health > 0:
+            if self.herd.dinosaurs[0].health > 0:
                 self.display_winners('The Dinosaurs have won')
                 print('The battle is over')
-            elif self.fleet.robots[2].health > 0:
+            elif self.fleet.robots[0].health > 0:
                 self.display_winners('The Robots have won')
                 print('The battle is over')
-
-    #trying to make a random pick from the fleet and heard to attack
-        # self.robo_turn(random.choice(self.fleet.robots).weapon.attack_power)
-        # self.dino_turn(random.choice(self.herd.dinosaurs).attack_power)
 
     def dino_turn(self):
         if self.fleet.robots[0].health > 0:
             Dinosaur.attack(self.herd.dinosaurs[0], self.fleet.robots[0])
-        elif self.fleet.robots[1].health >0:
-            Dinosaur.attack(self.herd.dinosaurs[1], self.fleet.robots[1])
-        elif self.fleet.robots[2].health >0:
-            Dinosaur.attack(self.herd.dinosaurs[2], self.fleet.robots[2])
         else:
             return
 
     def robo_turn(self):
         if self.herd.dinosaurs[0].health > 0:
             Robot.attack(self.fleet.robots[0], self.herd.dinosaurs[0])
-        elif self.herd.dinosaurs[1].health > 0:
-            Robot.attack(self.fleet.robots[1], self.herd.dinosaurs[1])
-        elif self.herd.dinosaurs[2].health > 0:
-            Robot.attack(self.fleet.robots[2], self.herd.dinosaurs[2])
         else:
             return
         

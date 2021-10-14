@@ -28,15 +28,9 @@ herd1.dinosaurs.append(dinosaur1)
 herd1.dinosaurs.append(dinosaur2)
 herd1.dinosaurs.append(dinosaur3)
 
-
 from battlefield import Battlefield
 
 game = Battlefield(fleet1,herd1)
-
-
-# print(game.display_welcome())
-# print(game.show_dino_opponent_options())
-# print(game.show_robo_opponent_options())
 
 game.run_game()
 

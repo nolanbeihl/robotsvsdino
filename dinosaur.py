@@ -11,5 +11,8 @@ class Dinosaur:
         if robot.health > 0:
             print(f'Robot {robot.name} now has a health value of {robot.health}')
         else:
-            Fleet.robots.pop(robot)
+            print(f' Robot {robot.name} has died')
+           
+
+
 
