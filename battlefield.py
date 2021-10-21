@@ -1,11 +1,23 @@
 from dinosaur import Dinosaur
+from fleet import Fleet
+from herd import Herd
+from weapon import Weapon
 from robot import Robot
 import random
 
+robot_choices = []
+
+dinosaur1 = Dinosaur('T-Rex', 50, 200)
+dinosaur2 = Dinosaur('Blue', 100, 300)
+dinosaur3 = Dinosaur('Tragdor', 150, 250)
+
+fleet1 = Fleet()
+herd1 = Herd()
+
 class Battlefield:
-    def __init__(self, fleet, herd):
-        self.fleet = fleet
-        self.herd = herd
+    def __init__(self,):
+        self.fleet = ()
+        self.herd = ()
 
     def run_game(self):
         self.display_welcome()
@@ -19,50 +31,68 @@ class Battlefield:
     def battle(self):
         self.robo_turn()
         self.dino_turn()
-        while len(self.herd.dinosaurs)>0 and len(self.fleet.robots)>0:
+        while len(herd1)>0 and len(robot_choices)>0:
             self.robo_turn()
-            if self.herd.dinosaurs[0].health<=0:
-                self.herd.dinosaurs.pop(0)
-            elif self.fleet.robots[0] and self.herd.dinosaurs[0]:
+            if herd1[0].health<=0:
+                herd1.pop(0)
+            elif robot_choices[0] and herd1[0]:
                 self.dino_turn()
-                if self.fleet.robots[0].health <= 0:
-                    self.fleet.robots.pop(0)
+                if robot_choices[0].health <= 0:
+                    robot_choices.pop(0)
             else:
                  self.battle()
         else:
-            if self.herd.dinosaurs[0].health > 0:
+            if herd1[0].health > 0:
                 self.display_winners('The Dinosaurs have won')
                 print('The battle is over')
-            elif self.fleet.robots[0].health > 0:
+            elif robot_choices[0].health > 0:
                 self.display_winners('The Robots have won')
                 print('The battle is over')
 
     def dino_turn(self):
-        if self.fleet.robots[0].health > 0:
+        if robot_choices[0].health > 0:
     #use of this randomizer for the characters ends up using dead characters, will continue to work on
             # robot = random.choice(self.fleet.robots)
             # dinosaur = random.choice(self.herd.dinosaurs)
             # Dinosaur.attack(dinosaur,robot)
-            Dinosaur.attack(self.herd.dinosaurs[0], self.fleet.robots[0])
+            Dinosaur.attack(herd1[0], robot_choices[0])
         else:
             return
 
     def robo_turn(self):
-        if self.herd.dinosaurs[0].health > 0:
+        if herd1[0].health > 0:
             # robot = random.choice(self.fleet.robots)
             # dinosaur = random.choice(self.herd.dinosaurs)
             # Robot.attack(robot, dinosaur)
-            Robot.attack(self.fleet.robots[0], self.herd.dinosaurs[0])
+            Robot.attack(robot_choices[0], robot_choices[0])
         else:
             return
         
     def show_dino_opponent_options(self):
-        print((self.herd.dinosaurs[0].name), (self.herd.dinosaurs[1].name), (self.herd.dinosaurs[2].name))
+        print((herd1[0].name), (herd1[1].name), (herd1[2].name))
 
     def show_robo_opponent_options(self):
-        print((self.fleet.robots[0].name), (self.fleet.robots[1].name), (self.fleet.robots[2].name))
+        print(robot_choices[0].name), (robot_choices[1].name), (robot_choices[2].name)
 
     def display_winners(self,winner):
         print(winner)
+ 
+    def build_fleet(self):
+        fleet1 = robot_choices
+        while len(fleet1) <3:
+            print('Please choose your robots : ')
+            i = 1
+            for robots in robot_choices:
+                print(f"\n\t Enter -{1} for {robots.name}")
+                i+=1
+            user_selection = self.try_parse_int(input("Selection:"))
+            fleet1.append(user_selection)
+        return fleet1
 
-
+    def try_parse_int(value):
+        """Attempts to parse a string into an integer, returns 0 if unable to parse"""
+        try:
+            return int(value)
+        except:
+            return 0
+            
