@@ -1,8 +1,9 @@
 from dinosaur import Dinosaur
-from fleet import Fleet
-from herd import Herd
 from weapon import Weapon
 from robot import Robot
+from fleet import Fleet
+from herd import Herd
+
 import random
 
 robot_choices = []
@@ -15,7 +16,7 @@ fleet1 = Fleet()
 herd1 = Herd()
 
 class Battlefield:
-    def __init__(self,):
+    def __init__(self):
         self.fleet = ()
         self.herd = ()
 
@@ -77,22 +78,4 @@ class Battlefield:
     def display_winners(self,winner):
         print(winner)
  
-    def build_fleet(self):
-        fleet1 = robot_choices
-        while len(fleet1) <3:
-            print('Please choose your robots : ')
-            i = 1
-            for robots in robot_choices:
-                print(f"\n\t Enter -{1} for {robots.name}")
-                i+=1
-            user_selection = self.try_parse_int(input("Selection:"))
-            fleet1.append(user_selection)
-        return fleet1
 
-    def try_parse_int(value):
-        """Attempts to parse a string into an integer, returns 0 if unable to parse"""
-        try:
-            return int(value)
-        except:
-            return 0
-            
